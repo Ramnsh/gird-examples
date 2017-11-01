@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr >
+						<th class="text-center">
+							#
+						</th>
+						<th class="text-center">
+							Name
+						</th>
+						<th class="text-center">
+							Mail
+						</th>
+						<th class="text-center">
+							Mobile
+						</th>
+						<th class="text-center">
+							Select
+						</th>
+						<th class="text-center">
+							Delete Row
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='addr{{c.Id}}' *ngFor= "let c of user;">
+						<td>
+						{{c.Id}}
+						</td>
+						<td>
+						<input type="text" name='name{{c.Id}}'  placeholder='Name' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='mail{{c.Id}}' placeholder='Mail' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='mobile{{c.Id}}' placeholder='Mobile' class="form-control"/>
+						</td>
+						<td class="checkbox">
+							<input type="checkbox" name='check{{c.Id}}' class="form-control" (change)="SelectedEle($event,c)"/>
+						</td>
+						<td>
+							<button id='delete_row' class="pull-right btn-sm btn-default" (click)="DeleteRow(c)">Delete Row</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<button id="add_row" class="btn-sm btn-default pull-left" (click)="AddRow()">Add Row</button>
+    
+</div>
